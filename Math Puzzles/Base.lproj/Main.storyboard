@@ -32,7 +32,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdk-oy-MAG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdk-oy-MAG">
                                 <rect key="frame" x="16" y="266" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.63180301220000001" green="0.83802260930000005" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -115,15 +115,57 @@
                         <outlet property="button1" destination="gOV-rd-2ux" id="DpC-1A-N97"/>
                         <outlet property="button2" destination="kxB-v5-UoE" id="EwD-vO-ohA"/>
                         <outlet property="button3" destination="YhK-gi-wD4" id="631-dh-3hG"/>
-                        <outlet property="button4" destination="cwj-Wo-CwV" id="5eG-LU-pRb"/>
+                        <outlet property="button4" destination="cwj-Wo-CwV" id="KbK-d6-nIt"/>
                         <outlet property="lifeLabel" destination="OzY-fi-wBS" id="P8I-Py-Sub"/>
                         <outlet property="puzzleLabel" destination="Kdk-oy-MAG" id="SrD-Wo-ufI"/>
                         <outlet property="scoreLabel" destination="6Fi-xo-hHn" id="uHC-HF-Nl9"/>
+                        <outlet property="startButton" destination="d9R-TC-P2v" id="ZGP-zu-cbM"/>
+                        <segue destination="uIh-nm-YKw" kind="show" identifier="gameOver" id="34n-iM-6re"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPA-nn-uQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-191.19999999999999" y="47.226386806596707"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="JIq-Pd-F8x">
+            <objects>
+                <viewController id="uIh-nm-YKw" customClass="GameViewController" customModule="Math_Puzzles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rBp-Pq-xex">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Si-gd-H0s">
+                                <rect key="frame" x="16" y="304" width="343" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGh-DD-HSX">
+                                <rect key="frame" x="115" y="398" width="145" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Restart">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="restartButtonPressed:" destination="uIh-nm-YKw" eventType="touchUpInside" id="zmW-Wl-PO5"/>
+                                    <segue destination="Z9g-3L-q2T" kind="show" id="zfc-Kf-MzX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.46045412060000002" blue="0.38142962730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Tfd-lH-Qpa"/>
+                    </view>
+                    <connections>
+                        <outlet property="restartButton" destination="zGh-DD-HSX" id="dO2-3Y-VzT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zew-Bh-mWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576.79999999999995" y="47.226386806596707"/>
         </scene>
     </scenes>
 </document>

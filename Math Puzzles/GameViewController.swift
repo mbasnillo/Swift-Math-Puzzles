@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var lifeLabel: UILabel!
     @IBOutlet weak var puzzleLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -26,6 +27,12 @@ class GameViewController: UIViewController {
     var operation: Int!
     var answer: Int!
     
+    /*
+     TODO:
+     - improve game logic and math equations
+     - improve UI
+     - include error catching (i.e. clicking on answers when there is no question yet)
+     */
     @IBAction func startButtonPressed(_ sender: UIButton) {
         self.operation = self.randomNumber(upperBound: 4)
         switch operation {
@@ -61,6 +68,11 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBAction func restartButtonPressed(_ sender: UIButton) {
+        self.score = 0
+        self.life = 3
+    }
+
     @IBAction func buttonPressed(_ sender: UIButton) {
         if (sender.tag == self.answer) {
             self.score = self.score + 1
@@ -69,7 +81,7 @@ class GameViewController: UIViewController {
         } else {
             self.life = self.life - 1
             if (self.life == 0) {
-                self.lifeLabel.text = "Life: GAME OVER"
+                self.performSegue(withIdentifier: "gameOver", sender: nil)
             } else {
                 self.lifeLabel.text = "Life: \(self.life)"
             }
